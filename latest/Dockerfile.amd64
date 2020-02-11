@@ -22,7 +22,7 @@ RUN apk update && \
       shadow \
       su-exec \
       jq \
-      git
+      git \
       make \
       rsync && \
     rm -rf /var/cache/apk/*
