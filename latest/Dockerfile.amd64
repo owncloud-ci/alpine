@@ -1,7 +1,7 @@
 FROM alpine:3.11
 
 LABEL maintainer="ownCloud DevOps <devops@owncloud.com>" \
-  org.label-schema.name="ownCloud CI Antora" \
+  org.label-schema.name="ownCloud CI Alpine" \
   org.label-schema.vendor="ownCloud GmbH" \
   org.label-schema.schema-version="1.0"
 
