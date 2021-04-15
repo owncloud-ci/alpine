@@ -19,7 +19,6 @@ ownCloud CI Alpine image based on the [official Alpine](https://registry.hub.doc
 ## Docker Tags and respective Dockerfile links
 
 - [`latest`](https://github.com/owncloud-ci/alpine/blob/master/latest/Dockerfile.amd64) available as `owncloudci/alpine:latest`
-- [`1.13`](https://github.com/owncloud-ci/alpine/blob/master/v1.13/Dockerfile.amd64) available as `owncloudci/alpine:1.13`
 
 ## Default volumes
 
