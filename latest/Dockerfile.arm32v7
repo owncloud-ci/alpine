@@ -9,9 +9,7 @@ LABEL org.opencontainers.image.documentation="https://github.com/owncloud-ci/alp
 
 ENV TERM xterm
 
-RUN apk update && \
-    apk upgrade && \
-    apk add \
+RUN apk add \
       ca-certificates \
       bash \
       vim \
