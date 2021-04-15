@@ -1,15 +1,15 @@
-image: owncloudci/alpine:latest
+image: owncloudci/alpine:1.13
 manifests:
-  - image: owncloudci/alpine:amd64
+  - image: owncloudci/alpine:1.13-amd64
     platform:
       architecture: amd64
       os: linux
-  - image: owncloudci/alpine:arm64v8
+  - image: owncloudci/alpine:1.13-arm64v8
     platform:
       architecture: arm64
       variant: v8
       os: linux
-  - image: owncloudci/alpine:arm32v7
+  - image: owncloudci/alpine:1.13-arm32v7
     platform:
       architecture: arm
       variant: v7

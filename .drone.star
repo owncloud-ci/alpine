@@ -1,6 +1,7 @@
 def main(ctx):
   versions = [
     'latest',
+    '1.13'
   ]
 
   arches = [
@@ -11,7 +12,8 @@ def main(ctx):
     'version': None,
     'arch': None,
     'trigger': [],
-    'repo': ctx.repo.name
+    'repo': ctx.repo.name,
+    'description': 'Alpine for ownCloud CI',
   }
 
   stages = []
@@ -55,6 +57,7 @@ def main(ctx):
     stages.extend(inner)
 
   after = [
+    documentation(config),
     notification(config),
   ]
 
@@ -116,6 +119,54 @@ def manifest(config):
       'ref': [
         'refs/heads/master',
         'refs/tags/**',
+      ],
+    },
+  }
+
+def documentation(config):
+  return {
+    'kind': 'pipeline',
+    'type': 'docker',
+    'name': 'documentation',
+    'platform': {
+      'os': 'linux',
+      'arch': 'amd64',
+    },
+    'steps': [
+      {
+        'name': 'link-check',
+        'image': 'ghcr.io/tcort/markdown-link-check:stable',
+        'commands': [
+          '/src/markdown-link-check README.md',
+        ],
+      },
+      {
+        'name': 'publish',
+        'image': 'chko/docker-pushrm:1',
+        'environment': {
+          'DOCKER_PASS': {
+            'from_secret': 'public_password',
+          },
+          'DOCKER_USER': {
+            'from_secret': 'public_username',
+          },
+          'PUSHRM_FILE': 'README.md',
+          'PUSHRM_TARGET': 'owncloudci/${DRONE_REPO_NAME}',
+          'PUSHRM_SHORT': config['description'],
+        },
+        'when': {
+          'ref': [
+            'refs/heads/master',
+          ],
+        },
+      },
+    ],
+    'depends_on': [],
+    'trigger': {
+      'ref': [
+        'refs/heads/master',
+        'refs/tags/**',
+        'refs/pull/**',
       ],
     },
   }
