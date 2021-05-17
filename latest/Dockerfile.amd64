@@ -7,9 +7,14 @@ LABEL org.opencontainers.image.url="https://hub.docker.com/r/owncloudci/alpine"
 LABEL org.opencontainers.image.source="https://github.com/owncloud-ci/alpine"
 LABEL org.opencontainers.image.documentation="https://github.com/owncloud-ci/alpine"
 
+ARG REG_VERSION
+
+# renovate: datasource=github-releases depName=genuinetools/reg
+ENV REG_VERSION="${REG_VERSION:-0.16.0}"
+
 ENV TERM xterm
 
-RUN apk add \
+RUN apk --update add --no-cache \
       ca-certificates \
       bash \
       vim \
@@ -26,7 +31,9 @@ RUN apk add \
       make \
       rsync \
       tree && \
-    rm -rf /var/cache/apk/*
+    curl -SsL -o /usr/local/bin/reg "https://github.com/genuinetools/reg/releases/download/v${REG_VERSION}/reg-linux-amd64" && \
+    chmod 755 /usr/local/bin/reg && \
+    rm -rf /var/cache/apk/* /tmp/*
 
 COPY ./rootfs /
 CMD ["bash"]
