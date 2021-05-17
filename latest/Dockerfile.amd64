@@ -10,7 +10,7 @@ LABEL org.opencontainers.image.documentation="https://github.com/owncloud-ci/alp
 ARG REG_VERSION
 
 # renovate: datasource=github-releases depName=genuinetools/reg
-ENV REG_VERSION="${REG_VERSION:-0.16.0}"
+ENV REG_VERSION="${REG_VERSION:-v0.16.1}"
 
 ENV TERM xterm
 
