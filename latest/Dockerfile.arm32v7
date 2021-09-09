@@ -33,7 +33,7 @@ RUN apk --update add --no-cache \
       git \
       make \
       rsync \
-      tree && \
+      tree \
       mailcap && \
     curl -SsL -o /usr/local/bin/reg "https://github.com/genuinetools/reg/releases/download/v${REG_VERSION##v}/reg-linux-arm" && \
     curl -SsL -o /usr/local/bin/retry "https://github.com/owncloud-ci/retry/releases/download/v${RETRY_VERSION##v}/retry" && \
