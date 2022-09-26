@@ -9,11 +9,14 @@ LABEL org.opencontainers.image.documentation="https://github.com/owncloud-ci/alp
 
 ARG REG_VERSION
 ARG RETRY_VERSION
+ARG HELM_VERSION
 
 # renovate: datasource=github-releases depName=genuinetools/reg
 ENV REG_VERSION="${REG_VERSION:-v0.16.1}"
 # renovate: datasource=github-releases depName=owncloud-ci/retry
 ENV RETRY_VERSION="${RETRY_VERSION:-v2.0.0}"
+# renovate: datasource=github-tags depName=helm/helm
+ENV HELM_VERSION="${HELM_VERSION:-v3.10.0}"
 
 ENV TERM xterm
 
@@ -37,8 +40,10 @@ RUN apk --update add --no-cache \
       mailcap && \
     curl -SsfL -o /usr/local/bin/reg "https://github.com/genuinetools/reg/releases/download/v${REG_VERSION##v}/reg-linux-arm64" && \
     curl -SsfL -o /usr/local/bin/retry "https://github.com/owncloud-ci/retry/releases/download/v${RETRY_VERSION##v}/retry" && \
+    curl -SsfL "https://get.helm.sh/helm-v${HELM_VERSION##v}-linux-arm64.tar.gz" | tar xz --strip-components=1 -C /usr/local/bin linux-arm64/helm && \
     chmod 755 /usr/local/bin/reg && \
     chmod 755 /usr/local/bin/retry && \
+    chmod 755 /usr/local/bin/helm && \
     rm -rf /var/cache/apk/* /tmp/*
 
 COPY ./rootfs /
