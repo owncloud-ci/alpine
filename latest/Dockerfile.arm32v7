@@ -1,4 +1,4 @@
-FROM regclient/regctl:v0.4.6 as regctl
+FROM --platform=linux/arm/v7 regclient/regctl:v0.4.6 as regctl
 
 FROM arm32v7/alpine:3.17@sha256:68a5b7d32422e42b98bedfe2aef4d0b3445f69f0efe390ba2204427d80179a92
 
