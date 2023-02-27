@@ -1,3 +1,5 @@
+FROM regclient/regctl:v0.4.6 as regctl
+
 FROM arm32v7/alpine:3.17@sha256:68a5b7d32422e42b98bedfe2aef4d0b3445f69f0efe390ba2204427d80179a92
 
 LABEL maintainer="ownCloud GmbH <devops@owncloud.com>"
@@ -47,4 +49,6 @@ RUN apk --update add --no-cache \
     rm -rf /var/cache/apk/* /tmp/*
 
 COPY ./rootfs /
+COPY --from=regctl /regctl /usr/local/bin/regctl
+
 CMD ["bash"]
