@@ -14,7 +14,7 @@ ownCloud CI Alpine image based on the [official Alpine](https://registry.hub.doc
   [owncloud-ci/alpine](https://github.com/owncloud-ci/alpine/issues)
 
 - **Supported architectures:**\
-  `amd64`, `arm32v7`, `arm64v8`
+  `amd64`, `arm64v8`
 
 ## Docker Tags and respective Dockerfile links
 
