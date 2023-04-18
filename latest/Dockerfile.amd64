@@ -39,6 +39,7 @@ RUN apk --update add --no-cache \
       make \
       rsync \
       tree \
+      yamllint \
       mailcap && \
     curl -SsfL -o /usr/local/bin/reg "https://github.com/genuinetools/reg/releases/download/v${REG_VERSION##v}/reg-linux-amd64" && \
     curl -SsfL -o /usr/local/bin/retry "https://github.com/owncloud-ci/retry/releases/download/v${RETRY_VERSION##v}/retry" && \
