@@ -24,6 +24,7 @@ ENV TERM xterm
 
 RUN apk --update add --no-cache \
       ca-certificates \
+      coreutils \
       bash \
       vim \
       curl \
