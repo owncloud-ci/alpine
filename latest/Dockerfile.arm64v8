@@ -18,7 +18,7 @@ ENV REG_VERSION="${REG_VERSION:-v0.16.1}"
 # renovate: datasource=github-releases depName=owncloud-ci/retry
 ENV RETRY_VERSION="${RETRY_VERSION:-v2.0.0}"
 # renovate: datasource=github-tags depName=helm/helm
-ENV HELM_VERSION="${HELM_VERSION:-v3.12.0}"
+ENV HELM_VERSION="${HELM_VERSION:-v3.12.1}"
 
 ENV TERM xterm
 
