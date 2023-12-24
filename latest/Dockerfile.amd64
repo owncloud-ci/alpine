@@ -1,4 +1,4 @@
-FROM regclient/regctl:v0.5.5@sha256:9905bf4efd079607472fded84faa6159aa1a14d5040c3daf8c1ef753773fec8a as regctl
+FROM regclient/regctl:v0.5.6@sha256:608caa8be5027d78a07565a055bddc7129d0957d4e6e9b870b203339ac663f22 as regctl
 
 FROM alpine:3.19@sha256:51b67269f354137895d43f3b3d810bfacd3945438e94dc5ac55fdac340352f48
 
