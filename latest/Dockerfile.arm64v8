@@ -1,6 +1,6 @@
 FROM regclient/regctl:v0.5.7@sha256:fab3c890d0480549d05d2ff3d746f42e360b7f0e3fe64bdf39fc572eab94911b as regctl
 
-FROM arm64v8/alpine:3.19@sha256:a0264d60f80df12bc1e6dd98bae6c43debe6667c0ba482711f0d806493467a46
+FROM arm64v8/alpine:3.19@sha256:9936c7ab62b03c4e050fa0d47ee556470e00157490c627552f5914279aa35e73
 
 LABEL maintainer="ownCloud GmbH <devops@owncloud.com>"
 LABEL org.opencontainers.image.authors="ownCloud DevOps <devops@owncloud.com>"
